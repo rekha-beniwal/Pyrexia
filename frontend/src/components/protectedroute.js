@@ -1,0 +1,24 @@
+import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+
+const ProtectedRoute = ({ element: Element, ...rest }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    const data = localStorage.getItem('user-info');
+    const userData = JSON.parse(data);
+    setUserInfo(userData);
+
+    if (userData) {
+        setIsAuthenticated(true);
+    }
+}, []); 
+
+  if (loading) return <div>Loading...</div>;
+
+  return isAuthenticated ? <Element {...rest} /> : <Navigate to="/login" />;
+};
+
+export default ProtectedRoute;
