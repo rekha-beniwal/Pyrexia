@@ -130,7 +130,7 @@ const RegistrationForm = () => {
       teamLeaderCollege: teamLeader.college,
       teamSize,
       teamLeaderGender,
-      fees
+      fees*1.02
     };
 
     try {
@@ -250,7 +250,9 @@ const RegistrationForm = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Registration Fees:</label>
-          <div className="text-lg font-bold">{fees ? `₹${fees}` : ""}</div>
+          <div className="text-lg font-bold">
+               {fees ? `₹${(fees * 1.02).toFixed(2)}` : ""}
+              </div>
         </div>
 
         {/* Submit Button */}
