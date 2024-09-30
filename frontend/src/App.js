@@ -76,7 +76,7 @@ const AppContent = () => {
                 <Route path="/accomodation" element={<Accomodation />} />
                 <Route path="/legalS/:pageName" element={<Legals />} />
                 <Route path="/subevent-details" element={<SubEventDetails />} />
-                <Route path="/basic-registration-form" element={<PrivateRoute element={<Soon/>} />} />
+                <Route path="/basic-registration-form" element={<PrivateRoute element={<BasicRegistrationPayment/>} />} />
                 <Route path="/membership-card-form" element={<PrivateRoute element={<MembershipCardPayment />} />} />
             </Routes>
         </>
