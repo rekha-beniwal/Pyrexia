@@ -85,7 +85,7 @@ const SubEventDetails = () => {
         {subEvent.venue && <p className="mt-2 text-md  md:text-lg ">Venue: {subEvent.venue}</p>}
         {/* {subEvent.prize && <p className="mt-2 text-md  md:text-lg ">Prize: {subEvent.prize}</p>} */}
 
-        <p className="mt-2 text-md  md:text-lg ">Fees: {subEvent.registrationFees}</p>
+        <p className="mt-2 text-md  md:text-lg ">Fees: {subEvent.registrationFees} + 2% Conventional Fees</p>
         {/* <p className="mt-2 text-md  md:text-lg ">Status: {subEvent.status}</p> */}
 
         {/* Conditionally render rulebook link */}
