@@ -1,4 +1,3 @@
-// src/components/RegisterPage.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +14,7 @@ const MembershipCardPayment = ({ subEvent }) => {
     tickets: 1,
   });
   const [fees, setFees] = useState(0);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // Fetch user info from localStorage
@@ -26,9 +26,9 @@ const MembershipCardPayment = ({ subEvent }) => {
     }
   }, []);
 
-  // Update fees when tickets are updated
+  // Update fees=1699 when tickets are updated
   useEffect(() => {
-    setFees(1599* formData.tickets);
+    setFees((1699+1699*0.02)* formData.tickets);
   }, [formData.tickets]);
 
   // Handle form input changes
@@ -40,22 +40,19 @@ const MembershipCardPayment = ({ subEvent }) => {
   };
 
   // Handle form submission
-  
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-      
-        try {
-          // Proceed to payment after user confirmation
-      
-          await checkoutHandler(fees, userInfo, formData,`${BASE_URL}/api/membershipCardPaymentVerification`,navigate);
-        
-        } catch (error) {
-          console.error("Error during payment process:", error);
-        }
-      };
-      
-  
-
+      const handleSubmit = async (e) => {
+      e.preventDefault();
+     setLoading(true);
+      try {
+         await checkoutHandler(fees, userInfo, formData,`${BASE_URL}/api/membershipCardPaymentVerification`,navigate);
+      } catch (error) {
+        console.error("Error during payment process:", error);
+      }
+        finally {
+      setLoading(false); // Stop loading after process is done (whether success or failure)
+    }
+    };
+     
   return (
     <div className="mt-24 bg-white p-8 rounded shadow-md my-24 max-w-5xl  mx-auto ">
       <h2 className="font-bold animate-pulse text-2xl md:text-3xl mx-auto my-5">Purchase MembershipCard</h2>
@@ -110,9 +107,9 @@ const MembershipCardPayment = ({ subEvent }) => {
           <button
             type="submit"
             className="w-full bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white p-2 rounded "
-            
+            disabled={loading} // Disable button when loading
           >
-            Confirm Registration
+            {loading ? "Processing..." : "Confirm Registration"}
           </button>
         </div>
       </form>
