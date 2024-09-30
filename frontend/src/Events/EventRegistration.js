@@ -6,9 +6,9 @@ import { BASE_URL } from "../BaseUrl";
 const RegistrationForm = () => {
   const location = useLocation();
   const subEvent = location.state?.subEvent;
-   const activeEvent = location.state?.activeEvent;
+  const [activeEvent, setActiveEvent] = useState(""); 
   const navigate = useNavigate();
-  const [teamSize, setTeamSize] = useState(subEvent?.minteamSize || 0); // Initialize to minteamSize
+  const [teamSize, setTeamSize] = useState(0); // Initialize to minteamSize
   const [fees, setFees] = useState("");
   const [teamLeaderGender, setTeamLeaderGender] = useState('');
   const [teamLeader, setTeamLeader] = useState({
@@ -18,8 +18,122 @@ const RegistrationForm = () => {
     college: ''
   });
   const [userInfo, setUserInfo] = useState({});
+  const eventdetails = {
+    "Alfresco": [
+        { title: "Capture and Conquer" },
+        { title: "Pictionary" },
+        { title: "Squid Game" },
+        { title: "Paper Dance" },
+        { title: "Silent Giggles" },
+        { title: "Treasure Hunt" },
+        { title: "Darty Secrets" },
+        { title: "Songstravaganza" },
+        { title: "SwiftMingle" },
+        { title: "Tambola" },
+        { title: "Evening Amore" },
+        { title: "Musical Chairs" },
+        { title: "Soul Sync" },
+        { title: "Drape It" },
+        { title: "Your Pace or Mine?" },
+    ],
+    "Chorea": [
+        { title: "Nritya Sangam" },
+        { title: "Ballismus" },
+        { title: "Street Blaze" },
+        { title: "Adaptune" },
+        { title: "Blossoming Steps – Couple Dance" },
+    ],
+    "Kalakriti": [
+        { title: "Fantasy Faces" },
+        { title: "Caffeine Creations" },
+        { title: "Brushless Strokes" },
+        { title: "Acrylic Odyssey" },
+        { title: "Tattoo Tales" },
+        { title: "Contrast Chronicles" },
+        { title: "Cupful of Doodles" },
+        { title: "Splash Tees" },
+        { title: "Mehendi Mania" },
+        { title: "Brush Of Pebbles" },
+    ],
+    "LITtMania": [
+        { title: "Cineholics" },
+        { title: "Cognizzia" },
+        { title: "Biocrux Jr.(MedQuiz)" },
+        { title: "Biocrux Sr.(MedQuiz)" },
+        { title: "Anime No Tatakai" },
+        { title: "Iconic Impressions " },
+        { title: "Unstory" },
+        { title: "Rip n Stitch" },
+        { title: "Cupid's Countdown" },
+        { title: "Kavyotsav:" },
+        { title: "Prose the Pictures" },
+        { title: "The War of Wits(Debate Competition)" },
+        { title: "JAM" },
+    ],
+    "Sinfonia": [
+        { title: "TARANG: Indian Singing" },
+        { title: "Euphonia: Western Singing" },
+        { title: "METALLICA" },
+        { title: "BATTLE OF BANDS" },
+        { title: "RHYTHM REVOLUTION - RAP BATTLE AND BEATBOXING" },
+    ],
+    "Thespians": [
+        { title: "Nukkad Natak" },
+        { title: "Echoes of Expressions: Monoact and Mime competition" },
+        { title: "COMIC-COMBAT: STAND-UP COMEDY" },
+        { title: "MADD ANGLE" },
+    ],
+    "Thunderbolt": [
+        { title: "Mortal Kombat" },
+        { title: "COD MOBILE (MULTIPLAYER)" },
+        { title: "TEKKEN" },
+        { title: "FIFA" },
+        { title: "BGMI (BATTLE ROYALE)" },
+        { title: "BGMI (TEAM DEATH MATCH)" },
+    ],
+    "Velocity": [
+        { title: "Boys Basketball 5V5" },
+        { title: "Girls Basketball 5V5" },
+        { title: "Boys Basketball 3V3" },
+        { title: "Girls Basketball 3V3" },
+        { title: "Cricket" },
+        { title: "Carrom Singles" },
+        { title: "Carrom Doubles" },
+        { title: "Carrom Mixed Doubles" },
+        { title: "Table Tennis Singles" },
+        { title: "Table Tennis Doubles" },
+        { title: "Table Tennis Mixed Doubles" },
+        { title: "Girls Kabaddi" },
+        { title: "Boys Kabaddi" },
+        { title: "Volleyball Boys" },
+        { title: "Volleyball Girls" },
+        { title: "Football (Boys Only)" },
+        { title: "Futsal (Boys Only)" },
+        { title: "Tennis Singles" },
+        { title: "Tennis Doubles" },
+        { title: "Tennis Mixed Doubles" },
+        { title: "Chess" },
+        { title: "Badminton Singles" },
+        { title: "Badminton Doubles" },
+        { title: "Badminton Mixed Doubles" },
+    ],
+    "Chronos": [
+        { title: "Chronos" },
+    ],
+};
+
+  const assignActiveEvent = (subEventTitle) => {
+    for (const [eventCategory, subEventList] of Object.entries(eventdetails)) {
+      if (subEventList.some(event => event.title === subEventTitle)) {
+        return eventCategory;
+      }
+    }
+    return ""; // Return empty if no matching event is found
+  };
+
 
   useEffect(() => {
+    console.log(activeEvent);
     const data = localStorage.getItem("user-info");
     const userData = JSON.parse(data);
     if (userData) {
@@ -29,8 +143,13 @@ const RegistrationForm = () => {
         email: userData.email
       })); // Set email from user info
     }
-  }, []);
+    if (subEvent) {
+      const assignedEvent = assignActiveEvent(subEvent.title);
+      setActiveEvent(assignedEvent);
+    }
+  }, [subEvent]);
 
+  
   if (!subEvent) {
     return <p>Error: Registration not available.</p>;
   }
@@ -62,9 +181,14 @@ const RegistrationForm = () => {
         } else if (size === 1 && gender === "Female") {
           setFees(singleGirl);
         }
-      }else if (Couple && teamSize === 2) {
+      }
+        else if (Couple){
+          if( size === 2) {
           setFees(Couple);
-      }else if (Solo && Duet && groupTeam) {
+        }
+        }
+      
+      else if (Solo && Duet && groupTeam) {
         if (size === 1) {
           setFees(Solo);
         } else if (size === 2) {
@@ -116,7 +240,8 @@ const RegistrationForm = () => {
   const handleGenderChange = (e) => {
     const gender = e.target.value;
     setTeamLeaderGender(gender);
-    calculateFees(teamSize, gender); // Ensure teamSize is defined before using it
+    calculateFees(teamSize, gender);
+   // Ensure teamSize is defined before using it
   };
 
   const handleSubmit = async (e) => {
@@ -130,9 +255,9 @@ const RegistrationForm = () => {
       teamLeaderCollege: teamLeader.college,
       teamSize,
       teamLeaderGender,
-      fees: (fees * 1.02).toFixed(2) 
+      fees
     };
-
+console.log(registrationData);
     try {
       const response = await axios.post(`${BASE_URL}/registerevent`, registrationData);
       alert(response.data.message);
@@ -250,9 +375,7 @@ const RegistrationForm = () => {
 
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Registration Fees:</label>
-          <div className="text-lg font-bold">
-               {fees ? `₹${(fees * 1.02).toFixed(2)}` : ""}
-              </div>
+          <div className="text-lg font-bold">{fees ? `₹${fees}` : ""}</div>
         </div>
 
         {/* Submit Button */}
