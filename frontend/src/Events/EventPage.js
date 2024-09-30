@@ -1343,7 +1343,7 @@ const EventPage = () => {
         minteamvalue: "4",
         minteamSize: "1",
         maxteamSize: "10",
-        fees: { perTeam: "", perPerson: "120", singleBoy: "", singleGirl: "", Couple: "", Solo: "", Duet: "", perhead: "" ,group4to10:"500"},
+        fees: { perTeam: "500", perPerson: "120", singleBoy: "", singleGirl: "", Couple: "", Solo: "", Duet: "", perhead: "" ,group4to10:"500"},
         contact1Name: '',
         contact1: '',
         contact2Name: '',
