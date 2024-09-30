@@ -52,7 +52,7 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       },
       modal: {
         ondismiss: function () {
-          alert("Payment popup closed.");
+          
         },
       },
     };
