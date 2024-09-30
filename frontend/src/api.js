@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "https://pyrexiabackend.onrender.com/auth/",
+    baseURL: "https://backendp-nahd.onrender.com/auth/",
     // withCredentials: true,
 });
 
