@@ -33,7 +33,7 @@ const AppContent = () => {
 
     // Google OAuth wrapper component
     const GoogleWrapper = () => (
-       <GoogleOAuthProvider clientId="885373696809-o35l4se3j6sjs8gimne5976452vr864e.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="885373696809-o35l4se3j6sjs8gimne5976452vr864e.apps.googleusercontent.com">
             <GoogleLogin />
         </GoogleOAuthProvider>
     );
