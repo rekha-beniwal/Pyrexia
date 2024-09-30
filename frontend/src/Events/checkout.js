@@ -51,7 +51,7 @@ export const checkoutHandler = async (amount, userEmail, eventName, callback, na
       },
       modal: {
         ondismiss: function () {
-          alert("Payment popup closed.");
+         
         },
       },
     };
