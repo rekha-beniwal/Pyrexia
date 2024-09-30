@@ -8,6 +8,7 @@ const RegistrationForm = () => {
   const subEvent = location.state?.subEvent;
   const [activeEvent, setActiveEvent] = useState(""); 
   const navigate = useNavigate();
+   const [loading, setLoading] = useState(false);
   const [teamSize, setTeamSize] = useState(0); // Initialize to minteamSize
   const [fees, setFees] = useState("");
   const [teamLeaderGender, setTeamLeaderGender] = useState('');
@@ -246,6 +247,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const registrationData = {
       mainevent:activeEvent,
       eventName: subEvent.title,
@@ -255,7 +257,7 @@ const RegistrationForm = () => {
       teamLeaderCollege: teamLeader.college,
       teamSize,
       teamLeaderGender,
-      fees
+      fees:(fees * 1.02).toFixed(2)
     };
 console.log(registrationData);
     try {
@@ -266,6 +268,8 @@ console.log(registrationData);
       }
     } catch (err) {
       alert(err.response?.data?.error || 'An error occurred');
+    }finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -375,7 +379,7 @@ console.log(registrationData);
 
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Registration Fees:</label>
-          <div className="text-lg font-bold">{fees ? `₹${fees}` : ""}</div>
+          <div className="text-lg font-bold"> {fees ? `₹${(fees * 1.02).toFixed(2)}` : ""}</div>
         </div>
 
         {/* Submit Button */}
@@ -383,8 +387,9 @@ console.log(registrationData);
           <button
             type="submit"
             className="w-full bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white p-2 rounded "
+              disabled={loading}
           >
-            Add to Cart
+               {loading ? "Processing..." : "Add to Cart"}
           </button>
         </div>
       </form>
