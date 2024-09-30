@@ -25,7 +25,7 @@ import BasicRegistrationPayment from './BasicRegistrationPayment/basicregistrati
 import MembershipCardPayment from './MembershipCardPayment/membershipCardPayment';
 import RegistrationForm from './Events/EventRegistration';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import Soon from './BasicRegistrationPayment/Soon';
 const AppContent = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(true);
     const location = useLocation();
@@ -76,7 +76,7 @@ const AppContent = () => {
                 <Route path="/accomodation" element={<Accomodation />} />
                 <Route path="/legalS/:pageName" element={<Legals />} />
                 <Route path="/subevent-details" element={<SubEventDetails />} />
-                <Route path="/basic-registration-form" element={<PrivateRoute element={<BasicRegistrationPayment />} />} />
+                <Route path="/basic-registration-form" element={<PrivateRoute element={<Soon/>} />} />
                 <Route path="/membership-card-form" element={<PrivateRoute element={<MembershipCardPayment />} />} />
             </Routes>
         </>
