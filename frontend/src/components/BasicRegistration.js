@@ -25,7 +25,7 @@ const BasicRegistration = () => {
             <p className="mb-4">
               3. Registration is required to ensure smooth coordination and participation in the fest.
             </p>
-            <p className="font-bold text-lg">Cost: ₹200 + Conventional Fees</p>
+            <p className="font-bold text-lg">Cost: ₹200 + 2% Conventional Fees</p>
           </div>
 
           {/* Register Button */}
