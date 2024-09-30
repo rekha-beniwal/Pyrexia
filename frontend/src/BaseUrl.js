@@ -1,1 +1,1 @@
-export const BASE_URL = "https://pyrexiabackend.onrender.com";
+export const BASE_URL = "https://backendp-nahd.onrender.com";
