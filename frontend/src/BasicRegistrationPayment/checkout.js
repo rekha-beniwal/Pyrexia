@@ -44,7 +44,7 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
         // Send payment data and additional details to your backend
         try {
           const result = await axios.post(`${callback}`, paymentData);
-          console.log("Payment verified:", result.data);
+          
           navigate("/profile");
 
         } catch (error) {
@@ -53,7 +53,7 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       },
       modal: {
         ondismiss: function () {
-          console.log("Payment popup closed.");
+          
         },
       },
     };
