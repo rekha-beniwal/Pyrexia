@@ -122,7 +122,7 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const registrationData = {
-      mainevent:activeEvent.title,
+      mainevent:activeEvent,
       eventName: subEvent.title,
       teamLeaderName: teamLeader.name,
       teamLeaderMobileNo: teamLeader.mobile,
