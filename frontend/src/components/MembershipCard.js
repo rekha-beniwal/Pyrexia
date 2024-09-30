@@ -28,7 +28,7 @@ const MembershipCard = () => {
 
             <div className="font-bold text-lg italic sant-serif poppins">
               <span className="line-through text-gray-500">Rs. 1800</span> 
-              <span className="text-[#ebe6d0]"> Rs. 1599 + 2% Conventional Fees</span>
+              <span className="text-[#ebe6d0]"> Rs. 1699 + 2% Conventional Fees</span>
             </div>
 
             <p className="mt-12 text-center italic text-lg">
