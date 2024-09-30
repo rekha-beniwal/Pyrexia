@@ -43,7 +43,7 @@ export const checkoutHandler = async (amount, userEmail, eventName, callback, na
         try {
           const result = await axios.post(`${callback}`, paymentData);
           // console.log("Payment verified:", result.data);
-          navigate("/profile");
+          navigate("/");
 
         } catch (error) {
           console.log("Error verifying payment:",error);
