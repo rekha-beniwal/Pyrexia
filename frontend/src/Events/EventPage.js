@@ -1823,7 +1823,7 @@ const EventPage = () => {
       },
       {
         title: "Girls Kabaddi",
-        registrationFees: "1000",
+        registrationFees: "1200",
         status: "Inactive",
         image:Kabbadi,
         tagline: '',
@@ -1847,7 +1847,7 @@ const EventPage = () => {
       },
       {
         title: "Boys Kabaddi",
-        registrationFees: "1200",
+        registrationFees: "1400",
         status: "Inactive",
         image: Kabbadi,
         tagline: '',
