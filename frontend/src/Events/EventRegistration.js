@@ -130,7 +130,7 @@ const RegistrationForm = () => {
       teamLeaderCollege: teamLeader.college,
       teamSize,
       teamLeaderGender,
-      fees*1.02
+      fees: (fees * 1.02).toFixed(2) 
     };
 
     try {
