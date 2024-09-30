@@ -32,8 +32,8 @@ const GoogleLogin = (props) => {
 
 	return (
 		<div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-[#001f3f] via-purple-800 to-[#001f3f] text-white">
-  <h1 className="text-6xl font-bold mb-8 animate-pulse tracking-wider">Feel the Heat</h1>
-  <h2 className="text-4xl font-semibold mb-12">Welcome to <span className="text-pink-600">Pyrexia</span></h2>
+  <h1 className="text-5xl md:text-6xl font-bold mb-8 animate-pulse tracking-wider">Feel the Heat</h1>
+  <h2 className="md:text-4xl text-3xl font-semibold mb-12">Welcome to <span className="text-pink-600">Pyrexia</span></h2>
   
   <button
     onClick={googleLogin}
