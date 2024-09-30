@@ -6,8 +6,10 @@ import {useNavigate} from 'react-router-dom';
 const GoogleLogin = (props) => {
 	const [user, setUser] = useState(null);
 	const navigate = useNavigate();
+	const [loading, setLoading] = useState(false);
 	const responseGoogle = async (authResult) => {
 		try {
+			setLoading(true);
 			if (authResult["code"]) {
 				const result = await googleAuth(authResult.code);
 				const {email, name, image} = result.data.user;
@@ -21,7 +23,9 @@ const GoogleLogin = (props) => {
 			}
 		} catch (e) {
 			console.log('Error while Google Login...', e);
-		}
+		}finally {
+			setLoading(false); // Stop loading
+		  }
 	};
 
 	const googleLogin = useGoogleLogin({
@@ -39,7 +43,8 @@ const GoogleLogin = (props) => {
     onClick={googleLogin}
     className="bg-pink-600  hover:bg-pink-400 text-black font-bold py-3 px-8 rounded-full transition transform hover:scale-110 hover:rotate-2 shadow-lg"
   >
-    Sign in with Google
+    {loading ? 'Signing in...' : 'Sign in with Google'} 
+
   </button>
 
   <p className="mt-10 text-lg italic animate-bounce">Join the fire. Ignite your passion at Pyrexia!</p>
