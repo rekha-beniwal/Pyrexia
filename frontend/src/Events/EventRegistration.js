@@ -6,6 +6,7 @@ import { BASE_URL } from "../BaseUrl";
 const RegistrationForm = () => {
   const location = useLocation();
   const subEvent = location.state?.subEvent;
+   const activeEvent = location.state?.activeEvent;
   const navigate = useNavigate();
   const [teamSize, setTeamSize] = useState(subEvent?.minteamSize || 0); // Initialize to minteamSize
   const [fees, setFees] = useState("");
@@ -121,6 +122,7 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const registrationData = {
+      mainevent:activeEvent.title,
       eventName: subEvent.title,
       teamLeaderName: teamLeader.name,
       teamLeaderMobileNo: teamLeader.mobile,
