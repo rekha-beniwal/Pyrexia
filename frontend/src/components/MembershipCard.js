@@ -20,7 +20,7 @@ const MembershipCard = () => {
             <ul className="list-disc list-inside space-y-2 mb-6">
               <li>1. Security Fees</li>
               <li>2. Green Charges</li>
-              <li>3. Refreshment & Hospitality Fees</li>
+              <li>3. Free Access to Pronites</li>
               <li>4. Unique Experiences</li>
               <li>5. Unforgettable Moments</li>
               <li>6. Lifetime Memories</li>
