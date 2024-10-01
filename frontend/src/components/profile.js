@@ -84,7 +84,7 @@ const Profile = () => {
                                                 <tr key={index}>
                                                     <td className="border px-4 py-2">{index + 1}</td>
                                                     <td className="border px-4 py-2">{ticket.payment_Id}</td>
-                                                    <td className="border px-4 py-2">{ticket.tickets}</td>
+                                                    <td className="border px-4 py-2">1</td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -126,6 +126,16 @@ const Profile = () => {
                             ) : (
                                 <p className="mt-2">No Membership Card purchased.</p>
                             )}
+                        </div>
+                        {/* Additional Information */}
+                        <div className="mt-8 text-left text-white">
+                            <h2 className="text-xl font-semibold">Important Information:</h2>
+                            <ul className="list-disc list-inside mt-4">
+                                <li>Registrations done through Google forms will not show up on your profile.</li>
+                                <li>Confirmation emails for registrations will be sent to you within 1-2 days, and updates on your profile may take some additional time.</li>
+                                <li>For individual events, you will be added to respective WhatsApp groups for the events within 1-2 days.</li>
+                                <li>For any irregularities in event registration, please fill out the form <a href="https://forms.gle/g6AiSsRyDucaYFCQ6" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">here</a>.</li>
+                            </ul>
                         </div>
 
                         <button
