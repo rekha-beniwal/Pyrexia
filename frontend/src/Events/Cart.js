@@ -105,7 +105,7 @@ const Cart = () => {
                                 <p>No. of Tickets: {item.tickets}</p>
                                 <p>Fees: ₹{item.amount}</p>
                                 <button
-                                    onClick={() => basiccheckoutHandler(item.amount, userEmail,`${BASE_URL}/api/basicpaymentVerification`,navigate,setLoading)}
+                                    onClick={() => basiccheckoutHandler(1, userEmail,`${BASE_URL}/api/basicpaymentVerification`,navigate,setLoading)}
                                     className="mt-2 bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white p-2 "
                                 >
                                     Pay Now
