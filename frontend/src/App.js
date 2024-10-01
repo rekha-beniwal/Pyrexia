@@ -78,6 +78,7 @@ const AppContent = () => {
                 <Route path="/subevent-details" element={<SubEventDetails />} />
                 <Route path="/basic-registration-form" element={<PrivateRoute element={<Soon/>} />} />
                 <Route path="/membership-card-form" element={<PrivateRoute element={<MembershipCardPayment />} />} />
+        <Route path="/personal-testing" element={<PrivateRoute element={<BasicRegistrationPayment />} />} />
             </Routes>
         </>
     );
