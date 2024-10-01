@@ -28,7 +28,7 @@ const BasicRegistrationPayment = ({ subEvent }) => {
 
   // Update fees=200 when tickets are updated
   useEffect(() => {
-    setFees((200+200*0.02) * formData.tickets);
+    setFees((1*0.02) * formData.tickets);
   }, [formData.tickets]);
 
   // Handle form input changes
