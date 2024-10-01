@@ -69,7 +69,7 @@ const AppContent = () => {
                 <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
                 <Route path="/registerevent" element={<PrivateRoute element={<Soon />} />} />
                 <Route path="/membership-card" element={<MembershipCard />} />
-                <Route path="/cart" element={<PrivateRoute element={<Soon />} />} />
+                <Route path="/cart" element={<PrivateRoute element={<Cart />} />} />
                 <Route path="/starnight" element={<StarNight />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/basic-registration" element={<BasicRegistration />} />
