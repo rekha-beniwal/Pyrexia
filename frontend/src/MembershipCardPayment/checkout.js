@@ -3,10 +3,16 @@ import { BASE_URL } from "../BaseUrl";
 import img from "../Images/Logo.png";
 
 
-export const checkoutHandler = async (amount, userInfo, formData, callback,navigate) => {
+export const membercheckoutHandler = async (amount, userEmail, callback, navigate,setLoading) => {
   try {
     const { data: { key } } = await axios.get(`${BASE_URL}/api/getkey`);
     const { data: { order } } = await axios.post(`${BASE_URL}/api/checkout`, { amount });
+
+    await axios.post(`${BASE_URL}/api/saveMemberOrder`, {
+      order_id: order.id,
+      email: userEmail
+
+    });
 
     const options = {
       key,
@@ -18,8 +24,8 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       order_id: order.id,
       callback_url: `${callback}`,
       prefill: {
-        name: userInfo.name,
-        email: userInfo.email,
+        name: "",
+        email: userEmail,
         contact: "",
       },
       notes: {
@@ -30,29 +36,29 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       },
       handler: async function (response) {
         // Capture the payment response from Razorpay
+        setLoading(true);
         const paymentData = {
           razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
-          amount:amount,
-          name: userInfo.name,
-          email: userInfo.email,
-          mobile: formData.mobile,
+          email: userEmail,
         };
 
         // Send payment data and additional details to your backend
         try {
-          const result = await axios.post(`${callback}`, paymentData);
-          // console.log("Payment verified:", result.data);
-          navigate("/");
+          await axios.post(`${callback}`, paymentData);
+          alert("Registration Completed !")
+          navigate("/profile");
 
         } catch (error) {
-          alert("Error verifying payment:");
+          console.log("Error verifying payment:",error);
+        } finally {
+          setLoading(false); // Set loading to false after navigation
         }
       },
       modal: {
         ondismiss: function () {
-          
+          alert("Payment popup closed.");
         },
       },
     };
