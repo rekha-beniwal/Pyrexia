@@ -3,10 +3,17 @@ import { BASE_URL } from "../BaseUrl";
 import img from "../Images/Logo.png";
 
 
-export const checkoutHandler = async (amount, userEmail, eventName, callback, navigate) => {
+export const checkoutHandler = async (amount, userEmail, eventName, callback, navigate,setLoading) => {
   try {
     const { data: { key } } = await axios.get(`${BASE_URL}/api/getkey`);
     const { data: { order } } = await axios.post(`${BASE_URL}/api/checkout`, { amount });
+
+    await axios.post(`${BASE_URL}/api/saveEventOrder`, {
+      order_id: order.id,
+      email: userEmail,
+      eventName
+      
+    });
 
     const options = {
       key,
@@ -30,6 +37,7 @@ export const checkoutHandler = async (amount, userEmail, eventName, callback, na
       },
       handler: async function (response) {
         // Capture the payment response from Razorpay
+        setLoading(true);
         const paymentData = {
           razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
@@ -42,16 +50,18 @@ export const checkoutHandler = async (amount, userEmail, eventName, callback, na
         // Send payment data and additional details to your backend
         try {
           const result = await axios.post(`${callback}`, paymentData);
-          // console.log("Payment verified:", result.data);
-          navigate("/");
+          alert("Registration Completed !")
+          navigate("/profile");
 
         } catch (error) {
           console.log("Error verifying payment:",error);
+        } finally {
+          setLoading(false); // Set loading to false after navigation
         }
       },
       modal: {
         ondismiss: function () {
-         
+          alert("Payment popup closed.");
         },
       },
     };
