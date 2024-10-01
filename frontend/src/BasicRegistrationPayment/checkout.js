@@ -3,11 +3,16 @@ import { BASE_URL } from "../BaseUrl";
 import img from "../Images/Logo.png";
 
 
-export const checkoutHandler = async (amount, userInfo, formData, callback,navigate) => {
+export const basiccheckoutHandler = async (amount, userEmail, callback, navigate,setLoading) => {
   try {
     const { data: { key } } = await axios.get(`${BASE_URL}/api/getkey`);
     const { data: { order } } = await axios.post(`${BASE_URL}/api/checkout`, { amount });
-
+    
+    await axios.post(`${BASE_URL}/api/saveBasicOrder`, {
+      order_id: order.id,
+      email: userEmail
+        
+    });
     const options = {
       key,
       amount: order.amount,
@@ -18,8 +23,8 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       order_id: order.id,
       callback_url: `${callback}`,
       prefill: {
-        name: userInfo.name,
-        email: userInfo.email,
+        name: "",
+        email: userEmail,
         contact: "",
       },
       notes: {
@@ -30,30 +35,30 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
       },
       handler: async function (response) {
         // Capture the payment response from Razorpay
+        setLoading(true);
         const paymentData = {
           razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
-         amount:amount,
-          name: userInfo.name,
-          email: userInfo.email,
-          mobile: formData.mobile,
-          tickets: formData.tickets,
+          email: userEmail,
+         
         };
 
         // Send payment data and additional details to your backend
         try {
-          const result = await axios.post(`${callback}`, paymentData);
-          
+          await axios.post(`${callback}`, paymentData);
+          alert("Registration Completed !")
           navigate("/profile");
 
         } catch (error) {
-          console.error("Error verifying payment:", error);
+          console.log("Error verifying payment:",error);
+        } finally {
+          setLoading(false); // Set loading to false after navigation
         }
       },
       modal: {
         ondismiss: function () {
-          
+          alert("Payment popup closed.");
         },
       },
     };
@@ -61,6 +66,6 @@ export const checkoutHandler = async (amount, userInfo, formData, callback,navig
     const razor = new window.Razorpay(options);
     razor.open();
   } catch (error) {
-    console.error("Error in checkoutHandler:", error);
+    alert("Error in checkoutHandler:", error);
   }
 };
