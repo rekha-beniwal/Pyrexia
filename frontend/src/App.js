@@ -67,9 +67,9 @@ const AppContent = () => {
                 <Route path="*" element={<Notfound />} />
                 <Route path="/events/:eventName" element={<EventPage />} />
                 <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
-                <Route path="/registerevent" element={<PrivateRoute element={<RegistrationForm />} />} />
+                <Route path="/registerevent" element={<PrivateRoute element={<Soon />} />} />
                 <Route path="/membership-card" element={<MembershipCard />} />
-                <Route path="/cart" element={<PrivateRoute element={<Cart />} />} />
+                <Route path="/cart" element={<PrivateRoute element={<Soon />} />} />
                 <Route path="/starnight" element={<StarNight />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/basic-registration" element={<BasicRegistration />} />
@@ -77,7 +77,7 @@ const AppContent = () => {
                 <Route path="/legalS/:pageName" element={<Legals />} />
                 <Route path="/subevent-details" element={<SubEventDetails />} />
                 <Route path="/basic-registration-form" element={<PrivateRoute element={<Soon/>} />} />
-                <Route path="/membership-card-form" element={<PrivateRoute element={<MembershipCardPayment />} />} />
+                <Route path="/membership-card-form" element={<PrivateRoute element={<Soon />} />} />
         <Route path="/personal-testing" element={<PrivateRoute element={<BasicRegistrationPayment />} />} />
             </Routes>
         </>
