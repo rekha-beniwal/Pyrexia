@@ -483,7 +483,7 @@ const EventPage = () => {
         description: "A Classical/Folk dance competition is a celebration of tradition creativity and the enduring legacy of classical and folk dances creating a captivating experience that honours the depth and diversity of our cultural roots.",
         teamSize: "",
         minteamSize: "1",
-        maxteamSize: "4",
+        maxteamSize: "20",
         fees: { perTeam: "", perPerson: "", singleBoy: "", singleGirl: "", Couple: "", Solo: "150", Duet: "250", perhead: "80" },
         contact1Name: '',
         contact1: '',
