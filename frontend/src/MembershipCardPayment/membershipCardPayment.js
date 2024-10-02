@@ -97,7 +97,7 @@ const MembershipCardPayment = () => {
         <div>
           <label className="block text-sm font-medium mb-2">Mobile No.</label>
           <input
-            type="text"
+            type="number"
             name="mobile"
             value={formData.mobile}
             onChange={handleChange}
