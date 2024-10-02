@@ -93,18 +93,21 @@ const MembershipCardPayment = () => {
             required
           />
         </div>
+<div>
+  <label className="block text-sm font-medium mb-2">Mobile No.</label>
+  <input
+    type="text"  // Change type to "text" to prevent scientific notation for long numbers
+    name="mobile"
+    value={formData.mobile}
+    onChange={handleChange}
+    className="w-full border border-gray-300 p-2 rounded"
+    maxLength="10"  // Restrict the length to 10 digits
+    pattern="\d{10}"  // Regex pattern to ensure 10 digits
+    title="Please enter a valid 10-digit mobile number"
+    required
+  />
+</div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2">Mobile No.</label>
-          <input
-            type="number"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
 
         <div>
           <label className="block text-sm font-medium mb-2">Email</label>
