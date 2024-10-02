@@ -307,18 +307,20 @@ console.log(registrationData);
             required
           />
         </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">Team Leader Mobile</label>
-          <input
-            type="text"
-            name="mobile"
-            value={teamLeader.mobile}
-            onChange={handleTeamLeaderChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
+<div>
+  <label className="block text-sm font-medium mb-2">Team Leader Mobile No.</label>
+  <input
+    type="text"  // Change type to "text" to prevent scientific notation for long numbers
+    name="mobile"
+    value={teamLeader.mobile}
+    onChange={handleTeamLeaderChange}
+    className="w-full border border-gray-300 p-2 rounded"
+    maxLength="10"  // Restrict the length to 10 digits
+    pattern="\d{10}"  // Regex pattern to ensure 10 digits
+    title="Please enter a valid 10-digit mobile number"
+    required
+  />
+</div>
 
         <div>
           <label className="block text-sm font-medium mb-2">Team Leader Email</label>
