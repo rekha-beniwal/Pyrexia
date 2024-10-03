@@ -18,7 +18,7 @@ const Navbar = () => {
       <Link to="/" className={buttonClasses}>Home</Link>
       <button className={buttonClasses} onClick={handleEventClick}>Events</button>
       <Link to="/starnight" className={buttonClasses}>Star Night</Link>
-      <a href="https://drive.google.com/file/d/12CP4PlhrVhJ4Hi_NVYIhn5B-wWi2q3kr/view?usp=drive_link" className={buttonClasses}>Brochure</a>
+      <a href="https://drive.google.com/file/d/1SCfcEEcHmufa3Zavr8kpwOBrU6geXTGu/view?usp=sharing" className={buttonClasses}>Brochure</a>
       <Link to="/accomodation" className={buttonClasses}>Accomodation</Link>
       <Link to="/schedule" className={buttonClasses}>Schedule</Link>
       <Link to="/membership-card" className={buttonClasses}>Membership Card</Link>
