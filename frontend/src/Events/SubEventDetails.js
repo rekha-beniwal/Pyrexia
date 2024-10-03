@@ -100,12 +100,18 @@ const SubEventDetails = () => {
           </a>
         )}
 
-<button 
-  className="block bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white mt-4 py-2 px-4 rounded text-md  md:text-lg"
-  onClick={() => navigate("/registerevent", { state: { subEvent , activeEvent } })}
->
-  Register
-</button>
+{
+  subEvent.title === "Football (Boys Only)" ? (
+    <p className="text-red-500 mt-4">Registration closed</p>
+  ) : (
+    <button
+      className="block bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white mt-4 py-2 px-4 rounded text-md md:text-lg"
+      onClick={() => navigate("/registerevent", { state: { subEvent, activeEvent } })}
+    >
+      Register
+    </button>
+  )
+}
       </div>
     </div>
   );
