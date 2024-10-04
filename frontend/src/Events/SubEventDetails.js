@@ -101,7 +101,7 @@ const SubEventDetails = () => {
         )}
 
 {
-  subEvent.title === "Football (Boys Only)" || subEvent.title === "Cricket" ? (
+  subEvent.title === "Football (Boys Only)" || subEvent.title === "Cricket" || subEvent.title === "Biocrux Sr.(MedQuiz)" || subEvent.title === "COD MOBILE (MULTIPLAYER)" || subEvent.title === "BGMI (BATTLE ROYALE)" || subEvent.title === "BGMI (TEAM DEATH MATCH)" ? (
     <p className="text-red-500 mt-4">Registration closed</p>
   ) : (
     <button
