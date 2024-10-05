@@ -11,6 +11,7 @@ const BasicRegistrationPayment = () => {
   });
   const [formData, setFormData] = useState({
     mobile: "",
+    college:"",
     tickets: 1,
   });
   const [fees, setFees] = useState(0);
@@ -48,6 +49,7 @@ const BasicRegistrationPayment = () => {
       name: userInfo.name,
       email: userInfo.email,
       mobile: formData.mobile,
+      college:formData.college,
       fees: fees,
     };
   
@@ -90,21 +92,17 @@ const BasicRegistrationPayment = () => {
           />
         </div>
 
-       <div>
-  <label className="block text-sm font-medium mb-2">Mobile No.</label>
-  <input
-    type="text"  // Change type to "text" to prevent scientific notation for long numbers
-    name="mobile"
-    value={formData.mobile}
-    onChange={handleChange}
-    className="w-full border border-gray-300 p-2 rounded"
-    maxLength="10"  // Restrict the length to 10 digits
-    pattern="\d{10}"  // Regex pattern to ensure 10 digits
-    title="Please enter a valid 10-digit mobile number"
-    required
-  />
-</div>
-
+        <div>
+          <label className="block text-sm font-medium mb-2">Mobile No.</label>
+          <input
+            type="number"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2 rounded"
+            required
+          />
+        </div>
 
         <div>
           <label className="block text-sm font-medium mb-2">Email</label>
@@ -117,6 +115,19 @@ const BasicRegistrationPayment = () => {
             required
           />
         </div>
+        
+        <div>
+          <label className="block text-sm font-medium mb-2">College</label>
+          <input
+            type="text"
+            name="college"
+            value={formData.college}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2 rounded"
+            required
+          />
+        </div>
+
 
 
         <div className="mb-4">
