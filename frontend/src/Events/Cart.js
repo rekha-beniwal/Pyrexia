@@ -102,6 +102,7 @@ const Cart = () => {
                                 <p>Name: {item.name}</p>
                                 <p>Email: {item.email}</p>
                                 <p>Mobile No.: {item.mobile}</p>
+                 <p>College: {item.college}</p>
                                 <p>No. of Tickets: {item.tickets}</p>
                                 <p>Fees: ₹{item.amount}</p>
                                 <button
@@ -128,6 +129,7 @@ const Cart = () => {
                                 <p>Name: {item.name}</p>
                                 <p>Email: {item.email}</p>
                                 <p>Mobile No.: {item.mobile}</p>
+                 <p>College: {item.college}</p>
                                 <p>Fees: ₹{item.amount}</p>
                                 <button
                                     onClick={() => membercheckoutHandler(item.amount, userEmail,`${BASE_URL}/api/membershipCardPaymentVerification`,navigate,setLoading)}
