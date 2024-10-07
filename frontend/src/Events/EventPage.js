@@ -722,7 +722,7 @@ const EventPage = () => {
       },
       {
         title: "Contrast Chronicles",
-        registrationFees: "₹20 per individual",
+        registrationFees: "₹40 per individual",
         status: "Inactive",
         image: ContrastChronicles,
         tagline: 'Sketching whispers, dreams take shape With strokes of graphite, worlds escape.',
@@ -730,7 +730,7 @@ const EventPage = () => {
         teamSize: "",
         minteamSize: "1",
         maxteamSize: "4",
-        fees: { perTeam: "", perPerson: "20", singleBoy: "", singleGirl: "", Couple: "", Solo: "", Duet: "", perhead: "" },
+        fees: { perTeam: "", perPerson: "40", singleBoy: "", singleGirl: "", Couple: "", Solo: "", Duet: "", perhead: "" },
         contact1Name: '',
         contact1: '',
         contact2Name: '',
