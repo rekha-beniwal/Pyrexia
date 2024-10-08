@@ -3,7 +3,7 @@ import React from 'react';
 const Accomodation = () => {
     const contacts = {
         boys: [
-          
+            { name: "Sunil Meena", phone:"93586 77455" },
             { name: "Sanjay Kumawat", phone: "87408 31837" },
             { name: "Tushar Kamboj", phone: "9518256360" }
         ],
