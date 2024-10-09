@@ -101,7 +101,7 @@ const SubEventDetails = () => {
         )}
 
 {
-  subEvent.title === "Football (Boys Only)" ||  subEvent.title === Futsal (Boys Only)" ||    subEvent.title === "Tennis Doubles" || subEvent.title === "Table Tennis Mixed Doubles" ||   subEvent.title === "Table Tennis Doubles" ||   subEvent.title === "Table Tennis Singles" || subEvent.title === "Tennis Singles" || subEvent.title === "Cricket" || subEvent.title === "Badminton Singles" || subEvent.title === "Badminton Doubles" || subEvent.title ===  "Badminton Mixed Doubles"  || subEvent.title === "Volleyball Boys"  || subEvent.title === "Volleyball Girls" || subEvent.title === "Biocrux Sr.(MedQuiz)" || subEvent.title === "COD MOBILE (MULTIPLAYER)" || subEvent.title === "BGMI (BATTLE ROYALE)" || subEvent.title === "BGMI (TEAM DEATH MATCH)" ? (
+  subEvent.title === "Football (Boys Only)" ||  subEvent.title === "Futsal (Boys Only)" ||    subEvent.title === "Tennis Doubles" || subEvent.title === "Table Tennis Mixed Doubles" ||   subEvent.title === "Table Tennis Doubles" ||   subEvent.title === "Table Tennis Singles" || subEvent.title === "Tennis Singles" || subEvent.title === "Cricket" || subEvent.title === "Badminton Singles" || subEvent.title === "Badminton Doubles" || subEvent.title ===  "Badminton Mixed Doubles"  || subEvent.title === "Volleyball Boys"  || subEvent.title === "Volleyball Girls" || subEvent.title === "Biocrux Sr.(MedQuiz)" || subEvent.title === "COD MOBILE (MULTIPLAYER)" || subEvent.title === "BGMI (BATTLE ROYALE)" || subEvent.title === "BGMI (TEAM DEATH MATCH)" ? (
     <p className="text-red-500 mt-4">Registration closed</p>
   ) : (
     <button
