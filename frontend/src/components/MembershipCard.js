@@ -40,12 +40,13 @@ const MembershipCard = () => {
 
           {/* Register Button */}
           <div className="flex justify-center items-center mt-8 p-4">
-            <button
+  {/*  <button
               className="bg-[#001f3f] hover:bg-gradient-to-t from-blue-800 via-blue-500 to-blue-400 text-white-black px-8 py-3 rounded-lg font-bold text-lg border-2 border-[#d9d2b8] shadow-md hover:shadow-lg transition duration-300"
               onClick={() => {navigate("/membership-card-form")}}
             >
               Register Now
-            </button>
+            </button>*/}
+            Registration Closed
           </div>
           </div>
           </div>
