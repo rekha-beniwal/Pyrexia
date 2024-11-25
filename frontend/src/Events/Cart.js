@@ -64,7 +64,8 @@ const Cart = () => {
         <div className={`cart pt-40 px-4 text-white bg-gradient-to-b from-[#001f3f] to-black min-h-screen ${loading ? 'blur-md' : ''}`}>
             <h2 className="text-4xl font-semibold mb-6  animate-pulse">Your Cart</h2>
             <br/>
-<div><p className='text-2xl text-blue-300 my-2'>Event Cart</p>
+    <div>
+        <div><p className='text-2xl text-blue-300 my-2'>Event Cart</p>
             {cartItems.length > 0 ? (
                 <ul className="list-disc pl-5">
                     {cartItems.map(item => (
