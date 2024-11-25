@@ -16,7 +16,7 @@ const GoogleLogin = (props) => {
 				const token = result.data.token;
 				const obj = {email,name, token, image};
 				localStorage.setItem('user-info',JSON.stringify(obj));
-				navigate('/');
+				navigate('/profile');
 			} else {
 				console.log(authResult);
 				throw new Error(authResult);
