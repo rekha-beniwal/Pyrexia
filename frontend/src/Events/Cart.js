@@ -64,9 +64,7 @@ const Cart = () => {
         <div className={`cart pt-40 px-4 text-white bg-gradient-to-b from-[#001f3f] to-black min-h-screen ${loading ? 'blur-md' : ''}`}>
             <h2 className="text-4xl font-semibold mb-6  animate-pulse">Your Cart</h2>
             <br/>
-            <div><p className="text-yellow-400 font-semibold mb-4">
-                    ⚠️  Important: Please avoid refreshing the page while making the payment. Wait until you see the "Registration Completed" message. Refreshing could lead to issues with saving your details. Also, ensure that your internet connection is stable. Once the payment is successful, you'll be automatically redirected to your profile page.   </p>
-            <div><p className='text-2xl text-blue-300 my-2'>Event Cart</p>
+<div><p className='text-2xl text-blue-300 my-2'>Event Cart</p>
             {cartItems.length > 0 ? (
                 <ul className="list-disc pl-5">
                     {cartItems.map(item => (
